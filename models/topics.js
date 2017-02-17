@@ -3,7 +3,9 @@ const db = require('../config/database');
 let Topic = {};
 
 Topic.findAll = () => {
-  return db.query('SELECT * FROM topics');
+  return db.query(`SELECT *
+  FROM topics
+  ORDER BY likes DESC`);
 }
 
 Topic.save = (topic) => {
@@ -28,12 +30,11 @@ Topic.findById = (id) => {
 Topic.update = (topic, id) => {
   return db.none(`
     UPDATE topics SET
-    likes = $1,
-    title = $2,
-    content = $3,
-    username = $4
-    WHERE id = $5`,
-    [topic.likes, topic.title, topic.content, topic.username,
+    title = $1,
+    content = $2,
+    username = $3
+    WHERE id = $4`,
+    [topic.title, topic.content, topic.username,
     id]
   );
 }
@@ -46,5 +47,14 @@ Topic.like = (id) => {
     [id]
   );
 }
+
+Topic.destroy = (id) => {
+  return db.none(`
+    DELETE FROM topics
+    WHERE id = $1`,
+    [id]
+  );
+}
+
 
 module.exports = Topic;

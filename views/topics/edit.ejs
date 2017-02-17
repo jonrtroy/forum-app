@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>EDIT YOUR TOPIC</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>EDIT YOUR TOPIC</h1>
+      </header>
+        <section>
+          <form class="" action="/topic/<%= topic.id %>?_method=PUT" method="POST">
+            <label for="topic[title]">Title</label><br>
+            <input type="text" name="topic[title]" value="<%= topic.title %>"><br>
+            <label for="topic[content]">Content</label><br>
+            <input type="text" name="topic[content]" value="<%= topic.content %>"><br>
+            <label for="topic[username]">User Name</label><br>
+            <input type="text" name="topic[username]" value="<%= topic.username %>"><br>
+            <input type="submit" value="EDIT TOPIC">
+          </form>
+        </section>
+    </main>
+  </body>
+</html>

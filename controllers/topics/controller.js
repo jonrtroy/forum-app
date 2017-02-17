@@ -1,4 +1,5 @@
 const Topic = require('../../models/topics');
+const Comments = require('../comments/controller');
 
 let controller = {};
 
@@ -51,9 +52,9 @@ controller.create = (req, res) => {
 
 controller.update = (req, res) => {
   Topic
-  .findById(req.params.id)
+  .update(req.body.topic, req.params.id)
   .then((data) => {
-    res.render('/topic')
+    res.redirect('/topic')
   })
   .catch((err) => {
     res
@@ -65,8 +66,8 @@ controller.update = (req, res) => {
 controller.edit = (req, res) => {
   Topic
   .findById(req.params.id)
-  .then(() => {
-    res.render('gifs/edit', {
+  .then((data) => {
+    res.render('topics/edit', {
       topic: data
     })
   })
@@ -93,5 +94,20 @@ controller.like = (req, res) => {
     .send(err);
   });
 }
+
+controller.destroy = (req, res) => {
+  Topic
+  .destroy(req.params.id)
+  .then(() => {
+    res.redirect('/topic')
+  })
+  .catch((err) => {
+    res
+    .status(400)
+    .send(err);
+  });
+}
+
+
 
 module.exports = controller;
