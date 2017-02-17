@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Topics</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Forum topics</h1>
+      </header>
+      <section>
+        <a href="/topic/new">ADD TOPIC</a>
+        <% topics.forEach((topic) => { %>
+          <div class="topic-container">
+            <h2><%= topic.title %></h2>
+            <p>LIKES: <%= topic.likes %></p>
+          </div>
+        <% }); %>
+      </section>
+    </main>
+  </body>
+</html>

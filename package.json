@@ -1,7 +1,6 @@
 {
   "name": "project-2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +15,14 @@
     "morgan": "^1.8.1",
     "path": "^0.12.7",
     "pg-promise": "^5.5.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonrtroy/forum-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonrtroy/forum-app/issues"
+  },
+  "homepage": "https://github.com/jonrtroy/forum-app#readme",
+  "description": ""
 }
