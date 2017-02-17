@@ -13,8 +13,15 @@
         <a href="/topic/new">ADD TOPIC</a>
         <% topics.forEach((topic) => { %>
           <div class="topic-container">
-            <h2><%= topic.title %></h2>
+            <a href="/topic/<%= topic.id %>">
+            <h2>Title: <%= topic.title %></h2>
+            </a>
+            <h2>Content: <%= topic.content %></h2>
+            <h2>User Name: <%= topic.username %></h2>
             <p>LIKES: <%= topic.likes %></p>
+            <form action="/topic/<%= topic.id %>/like?_method=PUT" method="POST">
+              <input type="submit" value="LIKE">
+            </form>
           </div>
         <% }); %>
       </section>

@@ -5,7 +5,7 @@ title VARCHAR(255),
 content TEXT,
 username VARCHAR(255) DEFAULT 'anonymous');
 
-CREATE TABLE posts
+CREATE TABLE comments
 (id BIGSERIAL,
 likes INTEGER DEFAULT 0,
 username VARCHAR(255) DEFAULT 'anonymous',
