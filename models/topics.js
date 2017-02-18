@@ -19,7 +19,7 @@ Topic.save = (topic) => {
 }
 
 Topic.findById = (id) => {
-  return db.one(`
+  return db.query(`
     SELECT *
     FROM topics
     WHERE id = $1`,
@@ -28,7 +28,7 @@ Topic.findById = (id) => {
 }
 
 Topic.update = (topic, id) => {
-  return db.none(`
+  return db.query(`
     UPDATE topics SET
     title = $1,
     content = $2,
@@ -40,7 +40,7 @@ Topic.update = (topic, id) => {
 }
 
 Topic.like = (id) => {
-  return db.none(`
+  return db.query(`
     UPDATE topics
     SET likes = likes + 1
     WHERE id = $1`,
@@ -48,13 +48,13 @@ Topic.like = (id) => {
   );
 }
 
-Topic.destroy = (id) => {
-  return db.none(`
-    DELETE FROM topics
-    WHERE id = $1`,
-    [id]
-  );
-}
+// Topic.destroy = (id) => {
+//   return db.query(`
+//     DELETE FROM topics
+//     WHERE id = $1`,
+//     [id]
+//   );
+// }
 
 
 module.exports = Topic;

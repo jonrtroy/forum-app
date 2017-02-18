@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><%= topic.title %> TOPIC</title>
+    <title>Page Title</title>
   </head>
   <body>
     <main>
@@ -11,7 +11,6 @@
       </header>
       <section>
         <div class="topic-container">
-          <h2>Title: <%= topic.title %></h2>
           <h2>Content: <%= topic.content %></h2>
           <h2>User Name: <%= topic.username %></h2>
           <p>LIKES: <%= topic.likes %></p>
@@ -21,19 +20,17 @@
           <form class="" action="<%= topic.id %>/edit" method="GET">
             <input type="submit" value="EDIT">
           </form>
-          <form class="" action="/topic/<%= topic.id %>?_method=DELETE"method="POST">
-            <input type="submit" value="DELETE">
-          </form>
+
           <br>
           <div class="comment-section">
           <% comments.forEach((comment) => { %>
-            <p><%= comment.comment %></p>
             <p><%= comment.username %></p>
+            <p><%= comment.comment %></p>
           <% }) %>
           </div>
             <div class="add-comment">
               <form class="" action="/topic/<%= topic.id %>" method="POST">
-                <input type="text" name="topic[username]" placeholder="username" %>"><br>
+                <input type="text" name="comments[username]" placeholder="username" %>"><br>
                 <textarea name="comments[comment]" rows="8" cols="80" placeholder="Add Comment here..."></textarea><br>
                 <input type="submit" value="ADD COMMENT">
               </form>

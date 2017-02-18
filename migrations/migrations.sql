@@ -10,4 +10,4 @@ CREATE TABLE comments
 likes INTEGER DEFAULT 0,
 username VARCHAR(255) DEFAULT 'anonymous',
 comment TEXT,
-topic_id BIGSERIAL);
+topic_id INTEGER REFERENCES topics(id));

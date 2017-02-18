@@ -1,5 +1,5 @@
 const Topic = require('../../models/topics');
-const Comments = require('../comments/controller');
+const Comments = require('../../models/comments');
 
 let controller = {};
 
@@ -25,17 +25,40 @@ controller.new = (req, res) => {
 controller.show = (req, res) => {
   Topic
   .findById(req.params.id)
-  .then((data) => {
-    res.render('topics/show', {
-      topic: data
+  .then((topics) => {
+    Comments
+    .findAllById(req.params.id)
+    .then((comments) => {
+      res.render('topics/show', {
+        topic: topics[0],
+        comments: comments
+      });
     })
+    .catch((err) => {
+      res
+      .status(400)
+      .send(err);
+    });
   })
-  .catch((err) => {
-    res
-    .status(400)
-    .send(err);
-  });
 }
+
+// Thread
+// .findThreadById(req.params.id)
+// .then((threads) => {
+//   Comments
+//   .findAllByThreadId(req.params.id)
+//   .then((comments) => {
+//     res.render('forum_app/show.ejs', {
+//       thread: threads[0],
+//       comments: comments
+//     });
+//   })
+// })
+// .catch((err) => {
+//   res
+//   .status(400)
+//   .send(err);
+// });
 
 controller.create = (req, res) => {
   Topic
@@ -50,11 +73,24 @@ controller.create = (req, res) => {
   });
 }
 
+controller.createComment = (req, res) => {
+  Comments
+  .createComment(req.body.comments, req.params.id)
+  .then(() => {
+    res.redirect(`/topic/${req.params.id}`);
+  })
+  .catch((err) => {
+    res
+    .status(400)
+    .send(err);
+  });
+}
+
 controller.update = (req, res) => {
   Topic
   .update(req.body.topic, req.params.id)
   .then((data) => {
-    res.redirect('/topic')
+    res.redirect('/topic');
   })
   .catch((err) => {
     res
@@ -68,7 +104,7 @@ controller.edit = (req, res) => {
   .findById(req.params.id)
   .then((data) => {
     res.render('topics/edit', {
-      topic: data
+      topic: data[0]
     })
   })
   .catch((err) => {
@@ -95,18 +131,18 @@ controller.like = (req, res) => {
   });
 }
 
-controller.destroy = (req, res) => {
-  Topic
-  .destroy(req.params.id)
-  .then(() => {
-    res.redirect('/topic')
-  })
-  .catch((err) => {
-    res
-    .status(400)
-    .send(err);
-  });
-}
+// controller.destroy = (req, res) => {
+//   Topic
+//   .destroy(req.params.id)
+//   .then(() => {
+//     res.redirect('/topic')
+//   })
+//   .catch((err) => {
+//     res
+//     .status(400)
+//     .send(err);
+//   });
+// }
 
 
 
