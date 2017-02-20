@@ -3,7 +3,10 @@ const db = require('../config/database.js');
 let Comments = {};
 
 Comments.findAllByTopicId = (id) => {
-  return db.query('SELECT * FROM comments WHERE topic_id = $1 ORDER BY likes DESC', [id]);
+  return db.query(`SELECT *
+    FROM comments
+    WHERE topic_id = $1
+    ORDER BY likes DESC`, [id]);
 }
 
 Comments.createComment = (data, id) => {
@@ -17,7 +20,11 @@ Comments.createComment = (data, id) => {
 }
 
 Comments.likes = (id) => {
-  return db.query('UPDATE comments SET likes = likes + 1 WHERE id = $1', [id]);
+  return db.query(`UPDATE comments
+    SET likes = likes + 1
+    WHERE id = $1`,
+    [id]
+  );
 }
 
 module.exports = Comments;

@@ -10,11 +10,7 @@ router.get('/new', controller.new);
 
 router.get('/:topic_id', controller.show);
 
-// router.delete('/:id', controller.destroy);
-
 router.get('/', controller.index);
-
-// router.get('/', controller.commentIndex);
 
 router.post('/', controller.create);
 
