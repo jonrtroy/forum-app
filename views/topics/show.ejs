@@ -2,41 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Page Title</title>
+    <title><%= topic.title %></title>
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <main>
+    <div id="container">
       <header>
+        <a href="/topic">
+          <button class="">Back to NFL Forum</button>
+        </a>
         <h1><%= topic.title %></h1>
+        <p><%= topic.content %></p>
       </header>
       <section>
-        <div class="topic-container">
-          <h2>Content: <%= topic.content %></h2>
-          <h2>User Name: <%= topic.username %></h2>
-          <p>LIKES: <%= topic.likes %></p>
-          <form action="/topic/<%= topic.id %>/like?_method=PUT&show=true" method="POST">
-              <input type="submit" value="LIKE">
-          </form>
-          <form class="" action="<%= topic.id %>/edit" method="GET">
-            <input type="submit" value="EDIT">
-          </form>
+        <form action="/topic/<%= topic.id %>" method="POST">
+          <textarea name="comments[content]" rows="6" cols="60"></textarea><br>
+          <button class="" type="submit">Submit Comment</button>
+        </form>
 
-          <br>
-          <div class="comment-section">
-          <% comments.forEach((comment) => { %>
-            <p><%= comment.username %></p>
-            <p><%= comment.comment %></p>
-          <% }) %>
-          </div>
-            <div class="add-comment">
-              <form class="" action="/topic/<%= topic.id %>" method="POST">
-                <input type="text" name="comments[username]" placeholder="username" %>"><br>
-                <textarea name="comments[comment]" rows="8" cols="80" placeholder="Add Comment here..."></textarea><br>
-                <input type="submit" value="ADD COMMENT">
-              </form>
-            </div>
+        <% comments.forEach((comment) => { %>
+        <div id="comment-container">
+          <p><%= comment.content %></p>
+          <p id="username">Written By: <%= comment.username %></p>
+          <p>Likes: <%= comment.likes %></p>
+            <form action="/topic/<%= topic.id %>/<%= comment.id %>?_method=PUT" method="POST">
+                <button type="submit">Like</button>
+            </form>
         </div>
+        <% }) %>
       </section>
-    </main>
+    </div>
   </body>
 </html>

@@ -23,48 +23,30 @@ controller.new = (req, res) => {
 }
 
 controller.show = (req, res) => {
-  Topic
-  .findById(req.params.id)
-  .then((topics) => {
-    Comments
-    .findAllById(req.params.id)
-    .then((comments) => {
-      res.render('topics/show', {
-        topic: topics[0],
-        comments: comments
+    Topic
+    .findTopicById(req.params.topic_id)
+    .then((topics) => {
+      Comments
+      .findAllByTopicId(req.params.topic_id)
+      .then((comments) => {
+        res.render('topics/show', {
+          topic: topics[0],
+          comments: comments
+        });
+      })
+      .catch((err) => {
+        res
+        .status(400)
+        .send(err);
       });
     })
-    .catch((err) => {
-      res
-      .status(400)
-      .send(err);
-    });
-  })
-}
-
-// Thread
-// .findThreadById(req.params.id)
-// .then((threads) => {
-//   Comments
-//   .findAllByThreadId(req.params.id)
-//   .then((comments) => {
-//     res.render('forum_app/show.ejs', {
-//       thread: threads[0],
-//       comments: comments
-//     });
-//   })
-// })
-// .catch((err) => {
-//   res
-//   .status(400)
-//   .send(err);
-// });
+  }
 
 controller.create = (req, res) => {
   Topic
-  .save(req.body.topic)
-  .then(() => {
-    res.redirect('/topic')
+  .createTopic(req.body.topics)
+  .then((data) => {
+    res.redirect(`/topic`)
   })
   .catch((err) => {
     res
@@ -75,10 +57,12 @@ controller.create = (req, res) => {
 
 controller.createComment = (req, res) => {
   Comments
-  .createComment(req.body.comments, req.params.id)
+  .createComment(req.body.comments, req.params.topic_id)
   .then(() => {
-    res.redirect(`/topic/${req.params.id}`);
+    res.redirect(`/topic/${req.params.topic_id}`);
   })
+  Topic
+  .sumComments(req.params.topic_id)
   .catch((err) => {
     res
     .status(400)
@@ -86,43 +70,11 @@ controller.createComment = (req, res) => {
   });
 }
 
-controller.update = (req, res) => {
+controller.topicLikes = (req, res) => {
   Topic
-  .update(req.body.topic, req.params.id)
-  .then((data) => {
-    res.redirect('/topic');
-  })
-  .catch((err) => {
-    res
-    .status(400)
-    .send(err);
-  });
-}
-
-controller.edit = (req, res) => {
-  Topic
-  .findById(req.params.id)
-  .then((data) => {
-    res.render('topics/edit', {
-      topic: data[0]
-    })
-  })
-  .catch((err) => {
-    res
-    .status(400)
-    .send(err);
-  });
-}
-
-controller.like = (req, res) => {
-  Topic
-  .like(req.params.id)
+  .likes(req.params.topic_id)
   .then(() => {
-    if (req.query.show) {
-      res.redirect(`/topic/${req.params.id}`)
-    } else {
-      res.redirect('/topic')
-    }
+    res.redirect(`/topic`)
   })
   .catch((err) => {
     res
@@ -131,19 +83,17 @@ controller.like = (req, res) => {
   });
 }
 
-// controller.destroy = (req, res) => {
-//   Topic
-//   .destroy(req.params.id)
-//   .then(() => {
-//     res.redirect('/topic')
-//   })
-//   .catch((err) => {
-//     res
-//     .status(400)
-//     .send(err);
-//   });
-// }
-
-
+controller.commentLikes = (req, res) => {
+  Comments
+  .likes(req.params.commentLikes)
+  .then(() => {
+    res.redirect(`/topic/${req.params.topic_id}`)
+  })
+  .catch((err) => {
+    res
+    .status(400)
+    .send(err);
+  });
+}
 
 module.exports = controller;

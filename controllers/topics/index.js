@@ -1,22 +1,23 @@
 const router = require('express').Router();
 const controller = require('./controller');
 
-router.get('/:id/edit', controller.edit);
 
-router.put('/:id/like', controller.like);
+router.put('/:topic_id/topicLikes', controller.topicLikes);
+
+router.put('/:topic_id/:commentLikes', controller.commentLikes);
 
 router.get('/new', controller.new);
 
-router.get('/:id', controller.show);
+router.get('/:topic_id', controller.show);
 
 // router.delete('/:id', controller.destroy);
 
 router.get('/', controller.index);
 
+// router.get('/', controller.commentIndex);
+
 router.post('/', controller.create);
 
-router.post('/:id', controller.createComment);
-
-router.put('/:id', controller.update);
+router.post('/:topic_id', controller.createComment);
 
 module.exports = router;

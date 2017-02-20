@@ -2,29 +2,33 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Topics</title>
+    <title>NFL Forum</title>
+
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body>
-    <main>
+    <div id="container">
       <header>
-        <h1>Forum topics</h1>
+        <h1>NFL Forum</h1>
+        <a href="/topic/new">
+          <button class="">Add New Topic</button>
+        </a>
       </header>
       <section>
-        <a href="/topic/new">ADD TOPIC</a>
         <% topics.forEach((topic) => { %>
-          <div class="topic-container">
+          <div id="topic-container">
             <a href="/topic/<%= topic.id %>">
-            <h2>Title: <%= topic.title %></h2>
+              <h2><%= topic.title %></h2>
             </a>
-            <h2>Content: <%= topic.content %></h2>
-            <h2>User Name: <%= topic.username %></h2>
-            <p>LIKES: <%= topic.likes %></p>
-            <form action="/topic/<%= topic.id %>/like?_method=PUT" method="POST">
-              <input type="submit" value="LIKE">
-            </form>
+              <p>Comments: <%= topic.comments_number %></p>
+              <p>LIKES: <%= topic.likes %></p>
+                <form action="/topic/<%= topic.id %>/topicLikes?_method=PUT" method="POST">
+                  <input type="submit" value="LIKE">
+                </form>
+            </div>
           </div>
-        <% }); %>
+        <% }) %>
       </section>
-    </main>
+    </div>
   </body>
 </html>

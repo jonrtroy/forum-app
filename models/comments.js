@@ -1,28 +1,23 @@
-const db = require('../config/database');
+const db = require('../config/database.js');
 
-const comment = {};
+let Comments = {};
 
-comment.findAllById = (id) => {
-  return db.query(`SELECT * FROM comments WHERE topic_id = $1`, [id]);
+Comments.findAllByTopicId = (id) => {
+  return db.query('SELECT * FROM comments WHERE topic_id = $1 ORDER BY likes DESC', [id]);
 }
 
-comment.createComment = (comment, id) => {
-  return db.query(`
-    INSERT INTO comments
-    (username, comment, topic_id)
+Comments.createComment = (data, id) => {
+  return db.query(
+    `INSERT INTO comments
+    (content, topic_id)
     VALUES
-    ($1, $2, $3)`,
-    [comment.username, comment.comment, id]
+    ($1, $2)`,
+    [data.content, id]
   );
 }
 
-comment.like = (id) => {
-  return db.query(`
-    UPDATE comments
-    SET likes = likes + 1
-    WHERE id = $1`,
-    [id]
-  );
+Comments.likes = (id) => {
+  return db.query('UPDATE comments SET likes = likes + 1 WHERE id = $1', [id]);
 }
 
-module.exports = comment;
+module.exports = Comments;
