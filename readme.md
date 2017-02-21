@@ -14,7 +14,7 @@ It will allow people to share their opinions and get other view points on differ
 ![Alt Text](https://github.com/jonrtroy/forum-app/blob/master/forum_ERD.png)
 
 
-<!-- ## Modules
+## Modules
 
 1. express - used to run node.js.
 2. ejs - used for generating HTML with JavaScript.
@@ -28,4 +28,4 @@ It will allow people to share their opinions and get other view points on differ
 1. You will need to git clone from Github my project.
 2. Once you have that, you will need to create a database named forum_app_db" in psql.
 3. Then go into the root folder of the project and type in psql -d forum_app_db -f migrations/migrations.sql
-4. Now that you created the database and the tables, you can now go into your localhost/3000/topic to run the project. -->
+4. Now that you created the database and the tables, you can now go into your localhost/3000/topic to run the project.
