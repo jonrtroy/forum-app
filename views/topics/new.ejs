@@ -7,16 +7,19 @@
   </head>
   <body>
     <div id="container">
-      <header>
+      <header id="header-title">
         <h1>Add New Topic</h1>
+        <a href="/topic">
+          <input id="button" type="submit" value="Back to the Football Forum">
+        </a>
       </header>
       <section>
-        <form action="/topic" method="POST">
+        <form id="new-form" action="/topic" method="POST">
           <label for="topics[title]">Title</label><br>
-          <input type="text" name="topics[title]"><br>
+          <input id="input-title" type="text" name="topics[title]" placeholder="Title"><br>
           <label for="topics[content]">Content</label><br>
-          <textarea name="topics[content]" rows="8" cols="80" placeholder="Enter some text..."></textarea><br>
-          <button class="" type="submit">Add Topic</button>
+          <textarea name="topics[content]" rows="8" cols="80" placeholder="Write here..."></textarea><br>
+          <input id="button" type="submit" value="Add Topic">
         </form>
       </section>
     </div>

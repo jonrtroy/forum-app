@@ -6,7 +6,9 @@ Comments.findAllByTopicId = (id) => {
   return db.query(`SELECT *
     FROM comments
     WHERE topic_id = $1
-    ORDER BY likes DESC`, [id]);
+    ORDER BY likes DESC`,
+    [id]
+  );
 }
 
 Comments.createComment = (data, id) => {

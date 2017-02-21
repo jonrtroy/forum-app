@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>NFL Forum</title>
+    <title>Football Forum</title>
 
     <link rel="stylesheet" href="/style.css">
   </head>
   <body>
     <div id="container">
       <header id="header-title">
-        <h1>NFL Forum</h1>
+        <h1>Football Forum</h1>
         <a href="/topic/new">
-          <button class="">Add New Topic</button>
+          <input id="button" type="submit" value="Add New Topic">
         </a>
       </header>
       <section>
@@ -20,11 +20,13 @@
             <a href="/topic/<%= topic.id %>">
               <h2><%= topic.title %></h2>
             </a>
-              <p>Comments: <%= topic.comments_number %></p>
-              <p>LIKES: <%= topic.likes %></p>
-                <form action="/topic/<%= topic.id %>/topicLikes?_method=PUT" method="POST">
-                  <input type="submit" value="LIKE">
-                </form>
+              <div class="comments-likes-container">
+                <p>Comments: <%= topic.comments_number %></p>
+                <p>Likes: <%= topic.likes %></p>
+              </div>
+                  <form action="/topic/<%= topic.id %>/topicLikes?_method=PUT" method="POST">
+                    <input id="button" type="submit" value="LIKE">
+                  </form>
             </div>
           </div>
         <% }) %>

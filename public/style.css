@@ -1,0 +1,89 @@
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  background-color: #D4DECD;
+  color: #003D78;
+  font-weight: bolder;
+}
+
+#header-title {
+  background: url(http://elgolazo.co/wp-content/uploads/2015/08/football_grass.jpg) no-repeat center center fixed;
+  background-size: cover;
+  border: solid 2px #000;
+  border-radius: 5px;
+  color: #0064FF;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  height: 225px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#button {
+  background-color: #0064FF;
+  border: solid 2px #0094FF;
+  border-radius: 5px;
+  box-shadow: 0 4px 0 #2E2E2E;
+}
+
+#topic-container {
+  border: solid 2px #000AA3;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #000AA3;
+  padding-bottom: 20px;
+  padding-left: 30px;
+}
+
+#comment-container {
+  border: solid 2px #000AA3;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #000AA3;
+  padding-bottom: 30px;
+  padding-left: 20px;
+}
+
+.comments-likes-container {
+  display: flex;
+}
+
+.comments-likes-container p {
+  padding-right: 30px;
+}
+
+#new-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+#input-title {
+  border: solid 2px #979E92;
+  border-radius: 4px;
+}
+
+#new-form textarea {
+  border: solid 2px #979E92;
+  border-radius: 4px;
+}
+
+.back-to-index {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+#show-form {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+#show-form textarea {
+  border: solid 2px #979E92;
+  border-radius: 4px;
+}
+
+#header-topic {
+  border-bottom: solid;
+  padding-top: 10px;
+}

@@ -8,16 +8,19 @@
   <body>
     <div id="container">
       <header id="header-topic">
-        <a href="/topic">
-          <button class="">Back to NFL Forum</button>
-        </a>
-        <h1><%= topic.title %></h1>
-        <p><%= topic.content %></p>
+        <div class="back-to-index">
+
+          <h1><%= topic.title %></h1>
+          <a href="/topic">
+            <input id="button" type="submit" value="Back to the Football Forum">
+          </a>
+        </div>
+          <p><%= topic.content %></p>
       </header>
       <section>
-        <form action="/topic/<%= topic.id %>" method="POST">
-          <textarea name="comments[content]" rows="6" cols="60"></textarea><br>
-          <button class="" type="submit">Submit Comment</button>
+        <form id="show-form" action="/topic/<%= topic.id %>" method="POST">
+          <textarea name="comments[content]" rows="6" cols="60" placeholder="Use your words here..."></textarea><br>
+          <input id="button" type="submit" value="Submit Comment">
         </form>
 
         <% comments.forEach((comment) => { %>
@@ -26,7 +29,7 @@
           <p id="username">Written By: <%= comment.username %></p>
           <p>Likes: <%= comment.likes %></p>
             <form action="/topic/<%= topic.id %>/<%= comment.id %>?_method=PUT" method="POST">
-                <button type="submit">Like</button>
+              <input id="button" type="submit" value="LIKE">
             </form>
         </div>
         <% }) %>
