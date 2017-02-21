@@ -1,17 +1,17 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-  background-color: #F3E8EE;
-  color: #2E2C2F;;
+  background-color: #FFF;
+  color: #424B54;;
   font-weight: bolder;
 }
 
 a {
   text-decoration: none;
-  color: #BACDB0;
+  color: #424B54;
 }
 
 a:visited {
-  color: #BACDB0;
+  color: #424B54;
 }
 
 #header-title {
@@ -19,7 +19,7 @@ a:visited {
   background-size: cover;
   border: solid 2px #000;
   border-radius: 5px;
-  color: #BACDB0;
+  color: #93A8AC;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   height: 225px;
   width: 100%;
@@ -40,7 +40,7 @@ a:visited {
 }
 
 #topic-container {
-  background-color: #729B79;
+  background-color: #93A8AC;
   border: solid 2px #475B63;
   border-radius: 5px;
   box-shadow: 0 2px 0 #475B63;
@@ -50,12 +50,8 @@ a:visited {
   padding-left: 30px;
 }
 
-#topic-container h2 {
-  color: 043565;
-}
-
 #comment-container {
-  background-color: #729B79;
+  background-color: #93A8AC;
   border: solid 2px #475B63;
   border-radius: 5px;
   box-shadow: 0 2px 0 #475B63;
@@ -74,7 +70,6 @@ a:visited {
 }
 
 #new-form {
-  color: #2E2C2F;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,5 +106,9 @@ a:visited {
   border-bottom: solid;
   color: #2E2C2F;
   padding-top: 10px;
+}
 
+#username {
+  font-size: 12px;
+  font-weight: lighter;
 }
