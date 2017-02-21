@@ -1,3 +1,4 @@
+-- created 2 tables for this project, one for topics and one for comments
 CREATE TABLE topics (
   id BIGSERIAL PRIMARY KEY,
   likes INTEGER DEFAULT 0,
