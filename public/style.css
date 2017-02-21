@@ -1,12 +1,17 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-  background-color: #F3FFFE;
-  color: #003D78;
+  background-color: #F3E8EE;
+  color: #2E2C2F;;
   font-weight: bolder;
 }
 
 a {
   text-decoration: none;
+  color: #BACDB0;
+}
+
+a:visited {
+  color: #BACDB0;
 }
 
 #header-title {
@@ -14,7 +19,7 @@ a {
   background-size: cover;
   border: solid 2px #000;
   border-radius: 5px;
-  color: #0064FF;
+  color: #BACDB0;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   height: 225px;
   width: 100%;
@@ -24,10 +29,10 @@ a {
 }
 
 #button {
-  background-color: #0064FF;
-  border: solid 2px #0094FF;
+  background-color: #BACDB0;
+  border: solid 2px #BACDB0;
   border-radius: 5px;
-  box-shadow: 0 4px 0 #2E2E2E;
+  box-shadow: 0 4px 0 #475B63;
 }
 
 #button:hover {
@@ -35,19 +40,25 @@ a {
 }
 
 #topic-container {
-  border: solid 2px #000AA3;
+  background-color: #729B79;
+  border: solid 2px #475B63;
   border-radius: 5px;
-  box-shadow: 0 2px 0 #000AA3;
+  box-shadow: 0 2px 0 #475B63;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-bottom: 20px;
   padding-left: 30px;
 }
 
+#topic-container h2 {
+  color: 043565;
+}
+
 #comment-container {
-  border: solid 2px #000AA3;
+  background-color: #729B79;
+  border: solid 2px #475B63;
   border-radius: 5px;
-  box-shadow: 0 2px 0 #000AA3;
+  box-shadow: 0 2px 0 #475B63;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-bottom: 30px;
@@ -63,6 +74,7 @@ a {
 }
 
 #new-form {
+  color: #2E2C2F;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,5 +109,7 @@ a {
 
 #header-topic {
   border-bottom: solid;
+  color: #2E2C2F;
   padding-top: 10px;
+
 }
