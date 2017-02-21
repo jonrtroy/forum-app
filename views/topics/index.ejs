@@ -5,6 +5,15 @@
     <title>Football Forum</title>
 
     <link rel="stylesheet" href="/style.css">
+
+    <script src="https://use.fontawesome.com/bcfbf51388.js"></script>
+
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="/main.js"></script>
+
+    </script>
+
   </head>
   <body>
     <div id="container">
@@ -21,8 +30,8 @@
               <h2><%= topic.title %></h2>
             </a>
               <div class="comments-likes-container">
-                <p>Comments: <%= topic.comments_number %></p>
-                <p>Likes: <%= topic.likes %></p>
+                <p><i class="fa fa-comments" aria-hidden="true"></i> <%= topic.comments_number %></p>
+                <p><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= topic.likes %></p>
               </div>
                   <form action="/topic/<%= topic.id %>/topicLikes?_method=PUT" method="POST">
                     <input id="button" type="submit" value="LIKE">

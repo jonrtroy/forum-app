@@ -1,8 +1,12 @@
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-  background-color: #D4DECD;
+  background-color: #F3FFFE;
   color: #003D78;
   font-weight: bolder;
+}
+
+a {
+  text-decoration: none;
 }
 
 #header-title {
@@ -26,10 +30,16 @@ body {
   box-shadow: 0 4px 0 #2E2E2E;
 }
 
+#button:hover {
+  background-color: green;
+}
+
 #topic-container {
   border: solid 2px #000AA3;
   border-radius: 5px;
   box-shadow: 0 2px 0 #000AA3;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-bottom: 20px;
   padding-left: 30px;
 }
@@ -38,6 +48,8 @@ body {
   border: solid 2px #000AA3;
   border-radius: 5px;
   box-shadow: 0 2px 0 #000AA3;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding-bottom: 30px;
   padding-left: 20px;
 }

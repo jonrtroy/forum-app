@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title><%= topic.title %></title>
     <link rel="stylesheet" href="/style.css">
+
+    <script src="https://use.fontawesome.com/bcfbf51388.js"></script>
+
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="/main.js"></script>
   </head>
   <body>
     <div id="container">
@@ -27,7 +33,7 @@
         <div id="comment-container">
           <p><%= comment.content %></p>
           <p id="username">Written By: <%= comment.username %></p>
-          <p>Likes: <%= comment.likes %></p>
+          <p><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= comment.likes %></p>
             <form action="/topic/<%= topic.id %>/<%= comment.id %>?_method=PUT" method="POST">
               <input id="button" type="submit" value="LIKE">
             </form>
