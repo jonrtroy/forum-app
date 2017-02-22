@@ -14,6 +14,16 @@ It will allow people to share their opinions and get other view points on differ
 ![Alt Text](https://github.com/jonrtroy/forum-app/blob/master/forum_ERD.png)
 
 
+## User Stories
+1. A user should be able to create their own topic for discussion.
+2. A user should be able to like a topic.
+3. A user should be able to click on a topic.
+4. A user should be able to commment on a topic.
+5. A user should be able to like a comment.
+6. A user should go back to the home page from either the new page or show page.
+7. A user should be able to see how many likes a topic has.
+8. A user should be able to see how many comments a topic has.
+
 ## Modules
 
 1. express - used to run node.js.
