@@ -17,7 +17,7 @@ Topic.findTopicById = (id) => {
     [id]
   );
 }
-// this createsthe topic the user inputted
+// this creates the topic the user inputted
 Topic.createTopic = (data) => {
   return db.query(
     `INSERT INTO topics
@@ -35,7 +35,7 @@ Topic.sumComments = (id) => {
     [id]
   );
 }
-// this allows the click button to add 1
+// this allows the click button to add 1 to the topic likes
 Topic.likes = (id) => {
   return db.query(`UPDATE topics
     SET likes = likes + 1

@@ -56,6 +56,7 @@ controller.create = (req, res) => {
   });
 }
 // Runs when a comment is created and puts it on the topic that it was created on
+// Also adds 1 when a comment is created
 controller.createComment = (req, res) => {
   Comments
   .createComment(req.body.comments, req.params.topic_id)
